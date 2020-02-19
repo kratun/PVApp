@@ -19,10 +19,10 @@
           <a *ngIf="isAuth" routerLink=""><span>Hello, {{username}}!</span></a>
       </li>
         <li>
-            <a *ngIf="isAuth" routerLink="/posts">Projects</a>
+            <a *ngIf="isAuth" routerLink="/projects">Projects</a>
         </li>
         <li>
-            <a *ngIf="isAuth" routerLink="/posts/create">Create</a>
+            <a *ngIf="isAuth" routerLink="/projects/create">Create</a>
         </li>
         <li>
             <a *ngIf="isAuth" (click)="logout()">Logout</a>

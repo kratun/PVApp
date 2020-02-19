@@ -1,0 +1,32 @@
+<div class="example-container py-5" *ngIf="postEditForm">
+  <form [formGroup]="postEditForm" (ngSubmit)="editPost()">
+    <mat-form-field>
+      <input formControlName="title" type="text" matInput placeholder="Edit title">
+      <mat-error *ngIf="postEditForm.get('title').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('title').hasError('minlength')">Title must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('title').hasError('maxlength')">Title should not be more 30 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="author" type="text" matInput placeholder="Edit customer name">
+      <mat-error *ngIf="postEditForm.get('author').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('author').hasError('minlength')">Customer name must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('author').hasError('maxlength')">Customer name should not be more 30 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="image" type="text" matInput placeholder="Edit image url">
+      <mat-error *ngIf="postEditForm.get('image').hasError('required')">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea formControlName="content" matInput placeholder="Edit content"></textarea>
+      <mat-error *ngIf="postEditForm.get('content').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('content').hasError('minlength')">Content must be at least 10 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="authorId" type="text" matInput>
+      <mat-error *ngIf="postEditForm.get('authorId').hasError('required')"></mat-error>
+    </mat-form-field>
+    <button class="mb-5 mr-4" routerLink="/projects" mat-raised-button type="button">Back</button>
+    <button [disabled]="postEditForm.invalid" class="mt-5" mat-flat-button color="accent" (click)="editPost(post._id)" type="submit">Edit</button>
+  </form>
+</div>

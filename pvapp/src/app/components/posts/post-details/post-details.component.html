@@ -1,0 +1,25 @@
+<main *ngIf="post">
+    <div class="py-5">
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-6">
+          <img class="col-md-6 mw-100" style="width: 100%" [src]="post.image" />
+          </div>
+          <div class="col-md-6">
+            <h1 class="mt-5 mb-2">{{post['title']}}</h1>
+            <h4 class="mt-5 mb-2"><span>Customer: {{post['author']}}</span></h4>
+            <button class="mb-5 mr-4" routerLink="/projects" mat-raised-button type="button">Back</button>
+            <button class="mb-5 mr-4" [routerLink]="['/projects', 'edit', post._id]" mat-raised-button color="primary" type="button" *ngIf="isAdminOrAuthor">Edit</button>
+            <button class="mb-5" (click)="deletePost(post['_id'])" mat-raised-button color="warn" type="button" *ngIf="isAdmin">Delete</button>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <p class="lead mb-5 text-50">{{post['content']}}</p>
+        </div>
+      </div>
+    </div>  
+    </main>
+    
+    
+    
+    

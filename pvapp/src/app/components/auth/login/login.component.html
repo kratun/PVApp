@@ -1,4 +1,5 @@
-<div class="example-container py-5  mb-5">
+<!-- <div *ngIf="!isLogged"> -->
+  <div class="example-container py-5  mb-5">
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <mat-form-field>
         <input formControlName="username" type="text" matInput placeholder="Enter your username">
@@ -15,3 +16,4 @@
       <button [disabled]="loginForm.invalid" class="mt-5" mat-flat-button color="accent" type="submit">Login</button>
     </form>
   </div>
+<!-- </div> -->

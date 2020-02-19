@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.authService.logout()
     .subscribe(() => {
       localStorage.clear();
-      this.router.navigate([ '/login'])
+      this.router.navigate([ ''])
     })
   }
 

@@ -7,6 +7,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PostAllComponent } from './components/posts/post-all/post-all.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { LoggedInAuthGuard } from './core/guards/logged.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostResolver } from './core/resolvers/post.resolver';
 import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
@@ -14,12 +15,12 @@ import { PostEditComponent } from './components/posts/post-edit/post-edit.compon
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'posts', component: PostAllComponent, canActivate: [ AuthGuard ] },
-  { path: 'posts/edit/:id', component: PostEditComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver } },
-  { path: 'posts/details/:id', component: PostDetailsComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver} },
-  { path: 'posts/create', component: PostCreateComponent, canActivate: [ AuthGuard ]  },
+  { path: 'signup', component: SignupComponent, canActivate: [ LoggedInAuthGuard ] },
+  { path: 'login', component: LoginComponent, canActivate: [ LoggedInAuthGuard ] },
+  { path: 'projects', component: PostAllComponent, canActivate: [ AuthGuard ] },
+  { path: 'projects/edit/:id', component: PostEditComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver } },
+  { path: 'projects/details/:id', component: PostDetailsComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver} },
+  { path: 'projects/create', component: PostCreateComponent, canActivate: [ AuthGuard ]  },
   { path: '**', component: NotFoundComponent }
 ];
 

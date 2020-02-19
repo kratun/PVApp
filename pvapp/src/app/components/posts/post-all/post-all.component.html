@@ -1,0 +1,27 @@
+<main>
+<div class="py-5">
+  <div class="container" >
+    <ng-template [ngIf]="allPosts">
+    
+    <div class="row">
+      
+      <div class="col-md-6" *ngFor="let post of allPosts">
+      <img class="col-md-6 mw-100" style="height: 300px" [src]="post.image" alt=""/>
+        <h1 class="mt-2 mb-2 pleft">{{post['title']}}</h1>
+        <h4 class="mt-1 mb-2 pleft"><span>Customer: {{post['author']}}</span></h4>
+        <p class="lead mb-2 text-50 pleft">{{post['content'].split(' ').slice(0, 7).join(' ')}} ...</p>
+        <span class="pleft">
+          <a class="mb-5" [routerLink]="['/projects/details', post['_id']]" mat-raised-button color="primary" type="button">View more</a>
+        </span>
+          
+      </div>
+    </div>
+  </ng-template> 
+  </div>
+  
+
+</div>  
+</main>
+
+
+

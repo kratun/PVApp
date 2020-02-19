@@ -11,10 +11,10 @@
   <a *ngIf="isAuth" mat-list-item routerLink="/posts/all" (click)="onSidenavClose()">
     <mat-icon>insert_emoticon</mat-icon><span id="profile" class="nav-caption">Hello, {{username}}!</span>
   </a>
-  <a *ngIf="isAuth" mat-list-item routerLink="/posts" (click)="onSidenavClose()">
+  <a *ngIf="isAuth" mat-list-item routerLink="/projects" (click)="onSidenavClose()">
     <mat-icon>favorite_border</mat-icon><span class="nav-caption">Projects</span>
   </a>
-  <a *ngIf="isAuth" mat-list-item routerLink="/posts/create" (click)="onSidenavClose()">
+  <a *ngIf="isAuth" mat-list-item routerLink="/projects/create" (click)="onSidenavClose()">
     <mat-icon>create</mat-icon><span class="nav-caption">Create</span>
   </a>
   <a *ngIf="isAuth" (click)="logout()" mat-list-item (click)="onSidenavClose()">
