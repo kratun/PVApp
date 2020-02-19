@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/">PV App</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+        <li>
+            <a *ngIf="!isAuth" routerLink="/signup">Register</a>
+        </li>
+        <li>
+            <a *ngIf="!isAuth" routerLink="/login">Login</a>
+        </li>
+        <li>
+          <a *ngIf="isAuth" routerLink=""><span>Hello, {{username}}!</span></a>
+      </li>
+        <li>
+            <a *ngIf="isAuth" routerLink="/posts">Projects</a>
+        </li>
+        <li>
+            <a *ngIf="isAuth" routerLink="/posts/create">Create</a>
+        </li>
+        <li>
+            <a *ngIf="isAuth" (click)="logout()">Logout</a>
+        </li>
+    </ul>
+  </div>
+</mat-toolbar>

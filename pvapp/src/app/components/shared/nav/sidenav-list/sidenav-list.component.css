@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+ 
+.nav-caption{
+    display: inline-block;
+    padding-left: 6px;
+}
+
+.exit {
+    transform: rotate(180deg)
+}
+
+.mat-nav-list {
+    height: 100%;
+}
+
+#profile {
+    color: blue;
+}
