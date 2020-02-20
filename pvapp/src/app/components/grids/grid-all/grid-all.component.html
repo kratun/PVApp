@@ -1,0 +1,41 @@
+<main>
+  <div class="py-5">
+    <div class="container" >
+      <div class="row">
+        <!-- <div class="col-md-12 btn-create-mg">
+          <span>
+          <a class="mt-1 mb-2" [routerLink]="['/grids/create']" color="primary" mat-raised-button type="button">Create grid</a>
+        </span>
+        </div> -->
+          
+      </div>
+      <ng-template [ngIf]="allGrids">
+      <div class="row">
+        
+        <div class="col-md-4 border" *ngFor="let grid of allGrids">
+          <h1 class="mt-2 mb-2 pleft">{{grid['name']}}</h1>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>High voltage transmission: {{grid['highVoltageTransmission']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>High voltage access: {{grid['highVoltageAccess']}}</span></h4>
+          
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Middle voltage transmission business: {{grid['middleVoltageTransmissionBusiness']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Middle voltage access business: {{grid['middleVoltageAccessBusiness']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Middle voltage transmission: {{grid['middleVoltageTransmission']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Middle voltage access: {{grid['middleVoltageAccess']}}</span></h4>
+
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Low voltage transmission business: {{grid['lowVoltageTransmissionBusiness']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Low voltage access business: {{grid['lowVoltageAccessBusiness']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Low voltage transmission: {{grid['lowVoltageTransmission']}}</span></h4>
+          <h4 class="mt-1 mb-2 pleft fontGrid"><span>Low voltage access: {{grid['lowVoltageAccess']}}</span></h4>
+
+          <span class="pleft">
+            <a class="mt-2 mb-3" [routerLink]="['/grids/edit', grid['_id']]" mat-raised-button color="primary" type="button">Edit</a>
+          </span>
+            
+        </div>
+      </div>
+    </ng-template> 
+    </div>
+    
+  
+  </div>  
+  </main>

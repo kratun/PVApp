@@ -10,17 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, DoCheck {
   isAuth: boolean;
   username: string = '';
+  isAdmin: boolean;
 
   @Output() sidenavToggle = new EventEmitter<void>();
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    
+     
   }
 
   ngDoCheck() {
     this.isAuth = this.authService.isAuthenticated();
+    this.isAdmin = this.authService.isAdministrator() && this.isAuth;
     this.username = localStorage.getItem('username');
   }
 

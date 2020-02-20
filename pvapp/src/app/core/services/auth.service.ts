@@ -57,15 +57,14 @@ export class AuthService {
   }
 
   saveUserInfo(user: Object) {
-    const isAdmin = user['_kmd']['roles'][0].roleId === ADMIN_ID;
-
+    let isAdmin = user['_kmd']['roles'][0].roleId === ADMIN_ID;
     localStorage.setItem('isAdmin', isAdmin + "");
     localStorage.setItem('username', user['username']);
     localStorage.setItem('token', user['_kmd']['authtoken']);
     localStorage.setItem('userId', user['_id']);
   }
 
-  isAdmin() {
-    return localStorage.getItem('isAdmin') === "true";
+  isAdministrator() {
+    return localStorage.getItem('isAdmin')==='true';
   }
 }

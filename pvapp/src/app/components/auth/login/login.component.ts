@@ -13,12 +13,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
-  // isLogged: boolean;
+ 
   ngOnInit() {
-    // this.isLogged = !!localStorage.getItem('token');
-    // if(this.isLogged){
-    //   this.router.navigate(['']);
-    // }
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [ Validators.required] ]

@@ -7,10 +7,13 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PostAllComponent } from './components/posts/post-all/post-all.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 import { LoggedInAuthGuard } from './core/guards/logged.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostResolver } from './core/resolvers/post.resolver';
 import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
+import { GridAllComponent } from './components/grids/grid-all/grid-all.component';
+import { GridCreateComponent } from './components/grids/grid-create/grid-create.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -18,9 +21,11 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent, canActivate: [ LoggedInAuthGuard ] },
   { path: 'login', component: LoginComponent, canActivate: [ LoggedInAuthGuard ] },
   { path: 'projects', component: PostAllComponent, canActivate: [ AuthGuard ] },
-  { path: 'projects/edit/:id', component: PostEditComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver } },
+  { path: 'projects/edit/:id', component: PostEditComponent, canActivate: [ AdminGuard ], resolve: { post: SinglePostResolver } },
   { path: 'projects/details/:id', component: PostDetailsComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver} },
-  { path: 'projects/create', component: PostCreateComponent, canActivate: [ AuthGuard ]  },
+  { path: 'projects/create', component: PostCreateComponent, canActivate: [ AdminGuard ]  },
+  { path: 'grids', component: GridAllComponent, canActivate: [ AdminGuard ] },
+  { path: 'grids/create', component: GridCreateComponent, canActivate: [ AdminGuard ]  },
   { path: '**', component: NotFoundComponent }
 ];
 

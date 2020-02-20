@@ -22,11 +22,19 @@
             <a *ngIf="isAuth" routerLink="/projects">Projects</a>
         </li>
         <li>
-            <a *ngIf="isAuth" routerLink="/projects/create">Create</a>
+            <a *ngIf="isAdmin" routerLink="/projects/create">Create</a>
         </li>
         <li>
-            <a *ngIf="isAuth" (click)="logout()">Logout</a>
+          <a *ngIf="isAdmin" routerLink="/grids">Grids</a>
         </li>
+        <li>
+          <a *ngIf="isAdmin" routerLink="/grids/create">Grid create</a>
+        </li>
+      
+        <li>
+            <a  routerLink="" *ngIf="isAuth" (click)="logout()">Logout</a>
+        </li>
+      
     </ul>
   </div>
 </mat-toolbar>

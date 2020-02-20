@@ -1,0 +1,60 @@
+<div class="example-container py-5">
+  <div class="col-md-4">
+    <form [formGroup]="gridCreateForm" (ngSubmit)="gridCreate()">
+      <!-- <mat-form-field>
+        <input formControlName="authorId" type="text" matInput hidden>
+        <mat-error *ngIf="gridCreateForm.get('authorId').hasError('required')">This field is required!</mat-error>
+      </mat-form-field> -->
+      <mat-form-field>
+        <input formControlName="name" type="text" matInput placeholder="Enter name">
+        <mat-error *ngIf="gridCreateForm.get('name').hasError('required')">This field is required!</mat-error>
+        <mat-error *ngIf="gridCreateForm.get('name').hasError('minlength')">Title must be at least 2 symbols!</mat-error>
+        <mat-error *ngIf="gridCreateForm.get('name').hasError('maxlength')">Title should not be more 30 symbols!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="highVoltageTransmission" type="number" step = "0.00001" matInput placeholder="Enter high voltage transmission">
+        <mat-error *ngIf="gridCreateForm.get('highVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="highVoltageAccess" type="number" matInput placeholder="Enter high voltage access">
+        <mat-error *ngIf="gridCreateForm.get('highVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="middleVoltageTransmissionBusiness" type="number" matInput placeholder="Enter Business middle voltage transmission">
+        <mat-error *ngIf="gridCreateForm.get('middleVoltageTransmissionBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageAccessBusiness" type="number" matInput placeholder="Enter Business middle voltage access">
+        <mat-error *ngIf="gridCreateForm.get('middleVoltageAccessBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageTransmission" type="number" matInput placeholder="Enter middle voltage transmission">
+        <mat-error *ngIf="gridCreateForm.get('middleVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageAccess" type="number" matInput placeholder="Enter middle voltage access">
+        <mat-error *ngIf="gridCreateForm.get('middleVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="lowVoltageTransmissionBusiness" type="number" matInput placeholder="Enter Business low voltage transmission">
+        <mat-error *ngIf="gridCreateForm.get('lowVoltageTransmissionBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageAccessBusiness" type="number" matInput placeholder="Enter Business low voltage access">
+        <mat-error *ngIf="gridCreateForm.get('lowVoltageAccessBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageTransmission" type="number" matInput placeholder="Enter low voltage transmission">
+        <mat-error *ngIf="gridCreateForm.get('lowVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageAccess" type="number" matInput placeholder="Enter low voltage access">
+        <mat-error *ngIf="gridCreateForm.get('lowVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+  
+      <button [disabled]="gridCreateForm.invalid" class="mt-2 mb-5" mat-flat-button color="accent" type="submit">Create</button>
+    </form>
+  </div>
+</div>

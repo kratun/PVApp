@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class SidenavListComponent implements OnInit, DoCheck {
   isAuth: boolean;
   username: string = '';
-
+  isAdmin:boolean;
   @Output() sidenavClose = new EventEmitter<void>();
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -21,6 +21,7 @@ export class SidenavListComponent implements OnInit, DoCheck {
 
 ngDoCheck() {
   this.isAuth = this.authService.isAuthenticated();
+  this.isAdmin = this.authService.isAdministrator() && this.isAuth;
   this.username = localStorage.getItem('username');
 }  
 

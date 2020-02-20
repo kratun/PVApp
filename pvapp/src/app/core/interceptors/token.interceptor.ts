@@ -20,12 +20,14 @@ export class TokenInterceptor implements HttpInterceptor {
           } else {
             headers.Authorization = 'Basic ' + btoa(APP_KEY + ':' + APP_SECRET);
           }
+          
         }
     
         const newReq = req.clone({ setHeaders: headers });
    
         return next.handle(newReq)
         .pipe(
+            
             tap((event: HttpEvent<any>) => {
                 if(event instanceof HttpResponse && req.url.endsWith('login')) {
                     this.authService.saveUserInfo(event.body);

@@ -21,6 +21,9 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
 import { ThankyouComponent } from './components/posts/thankyou/thankyou.component';
+import { GridCreateComponent } from './components/grids/grid-create/grid-create.component';
+import { GridEditComponent } from './components/grids/grid-edit/grid-edit.component';
+import { GridAllComponent } from './components/grids/grid-all/grid-all.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ThankyouComponent } from './components/posts/thankyou/thankyou.componen
     PostAllComponent,
     NotFoundComponent,
     PostEditComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    GridCreateComponent,
+    GridEditComponent,
+    GridAllComponent
   ],
   imports: [
     BrowserModule,

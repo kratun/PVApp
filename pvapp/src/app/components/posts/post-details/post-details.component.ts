@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class PostDetailsComponent implements OnInit {
   post: Post;
   get isAdmin(): boolean {
-    return this.authService.isAdmin();
+    return this.authService.isAdministrator();
   }
   
   get isAdminOrAuthor(): boolean{

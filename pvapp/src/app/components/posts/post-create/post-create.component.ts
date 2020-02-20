@@ -26,9 +26,6 @@ export class PostCreateComponent implements OnInit {
   postCreate() {
     let postDb = (this.postGreateForm.value) as Post
     postDb.authorId = localStorage.getItem('userId');
-    
-    console.log(this.postGreateForm.value);
-    console.log(postDb);
     this.postService.createPost(postDb).subscribe((data) => {
       this.router.navigate(['/projects'])
     })
