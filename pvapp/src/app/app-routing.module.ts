@@ -14,6 +14,8 @@ import { SinglePostResolver } from './core/resolvers/post.resolver';
 import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
 import { GridAllComponent } from './components/grids/grid-all/grid-all.component';
 import { GridCreateComponent } from './components/grids/grid-create/grid-create.component';
+import { GridEditComponent } from './components/grids/grid-edit/grid-edit.component';
+import { SingleGridResolver } from './core/resolvers/grid.resolver';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -26,7 +28,8 @@ const routes: Routes = [
   { path: 'projects/create', component: PostCreateComponent, canActivate: [ AdminGuard ]  },
   { path: 'grids', component: GridAllComponent, canActivate: [ AdminGuard ] },
   { path: 'grids/create', component: GridCreateComponent, canActivate: [ AdminGuard ]  },
-  { path: '**', component: NotFoundComponent }
+  { path: 'grids/edit/:id', component: GridEditComponent, canActivate: [ AdminGuard ], resolve: { grid: SingleGridResolver } },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

@@ -2,11 +2,11 @@
   <div class="py-5">
     <div class="container" >
       <div class="row">
-        <!-- <div class="col-md-12 btn-create-mg">
+        <div class="col-md-12 btn-create-mg color-grey">
           <span>
-          <a class="mt-1 mb-2" [routerLink]="['/grids/create']" color="primary" mat-raised-button type="button">Create grid</a>
+          <a class="mt-1 mb-2" [routerLink]="['/grids/create']" mat-raised-button type="button">Create grid</a>
         </span>
-        </div> -->
+        </div>
           
       </div>
       <ng-template [ngIf]="allGrids">
@@ -30,7 +30,10 @@
           <span class="pleft">
             <a class="mt-2 mb-3" [routerLink]="['/grids/edit', grid['_id']]" mat-raised-button color="primary" type="button">Edit</a>
           </span>
-            
+          <span class="pleft">
+            <button class="mb-5" (click)="deleteGrid(grid['_id'])" mat-raised-button color="warn" type="button" *ngIf="isAdmin">Delete</button>
+          </span>
+          
         </div>
       </div>
     </ng-template> 

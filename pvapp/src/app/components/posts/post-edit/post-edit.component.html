@@ -22,7 +22,7 @@
       <mat-error *ngIf="postEditForm.get('content').hasError('minlength')">Content must be at least 10 symbols!</mat-error>
       <mat-error *ngIf="postEditForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field hidden>
       <input formControlName="authorId" type="text" matInput>
       <mat-error *ngIf="postEditForm.get('authorId').hasError('required')"></mat-error>
     </mat-form-field>

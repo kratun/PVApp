@@ -1,3 +1,60 @@
-<p>
-  grid-edit works!
-</p>
+<div class="example-container py-5" *ngIf="gridEditForm">
+  <div class="col-md-4">
+    <form [formGroup]="gridEditForm" (ngSubmit)="editGrid()">
+      <mat-form-field> 
+        <input formControlName="name" type="text" matInput placeholder="Edit name">
+        <mat-error *ngIf="gridEditForm.get('name').hasError('required')">This field is required!</mat-error>
+        <mat-error *ngIf="gridEditForm.get('name').hasError('minlength')">Title must be at least 2 symbols!</mat-error>
+        <mat-error *ngIf="gridEditForm.get('name').hasError('maxlength')">Title should not be more 30 symbols!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="highVoltageTransmission" type="number" step = "0.00001" matInput placeholder="Edit high voltage transmission">
+        <mat-error *ngIf="gridEditForm.get('highVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="highVoltageAccess" type="number" matInput placeholder="Edit high voltage access">
+        <mat-error *ngIf="gridEditForm.get('highVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="middleVoltageTransmissionBusiness" type="number" matInput placeholder="Edit Business middle voltage transmission">
+        <mat-error *ngIf="gridEditForm.get('middleVoltageTransmissionBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageAccessBusiness" type="number" matInput placeholder="Edit Business middle voltage access">
+        <mat-error *ngIf="gridEditForm.get('middleVoltageAccessBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageTransmission" type="number" matInput placeholder="Edit middle voltage transmission">
+        <mat-error *ngIf="gridEditForm.get('middleVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="middleVoltageAccess" type="number" matInput placeholder="Edit middle voltage access">
+        <mat-error *ngIf="gridEditForm.get('middleVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="lowVoltageTransmissionBusiness" type="number" matInput placeholder="Edit Business low voltage transmission">
+        <mat-error *ngIf="gridEditForm.get('lowVoltageTransmissionBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageAccessBusiness" type="number" matInput placeholder="Edit Business low voltage access">
+        <mat-error *ngIf="gridEditForm.get('lowVoltageAccessBusiness').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageTransmission" type="number" matInput placeholder="Edit low voltage transmission">
+        <mat-error *ngIf="gridEditForm.get('lowVoltageTransmission').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lowVoltageAccess" type="number" matInput placeholder="Edit low voltage access">
+        <mat-error *ngIf="gridEditForm.get('lowVoltageAccess').hasError('required')">This field is required!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="authorId" type="text" matInput>
+        <mat-error *ngIf="gridEditForm.get('authorId').hasError('required')"></mat-error>
+      </mat-form-field>
+      <button class="mb-5 mr-4" routerLink="/grids" mat-raised-button type="button">Back</button>
+      <button [disabled]="gridEditForm.invalid" class="mt-5" mat-flat-button color="accent" (click)="editGrid(grid._id)" type="submit">Edit</button>
+    </form>
+  </div>
+</div>

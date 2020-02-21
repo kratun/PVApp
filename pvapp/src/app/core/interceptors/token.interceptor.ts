@@ -14,7 +14,7 @@ export class TokenInterceptor implements HttpInterceptor {
         const headers: { Authorization?: string } = { };
 
         if (!req.headers.has('Authorization')) {
-    
+          console.log(this.authService.isAuthenticated());
           if (this.authService.isAuthenticated()) {
             headers.Authorization = 'Kinvey ' + this.authService.token;
           } else {
